@@ -16,9 +16,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-RUN python manage.py collectstatic --noinput
 
 COPY . .
+RUN python manage.py collectstatic --noinput
 
 
 EXPOSE 8080
