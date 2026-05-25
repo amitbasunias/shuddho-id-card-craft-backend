@@ -1,0 +1,27 @@
+{% extends "admin/change_form.html" %}
+{# Adds three big workflow buttons next to the standard "Save" row on the
+   PackageRequest change page. Names map to the request.POST keys handled
+   in PackageRequestAdmin.response_change. #}
+
+{% block submit_buttons_bottom %}
+  {{ block.super }}
+  {% if original.pk %}
+  <div class="submit-row" style="display:flex;gap:8px;flex-wrap:wrap;">
+    <input type="submit" name="_mark_paid"
+           value="① Mark payments as paid"
+           style="background:#0d9488;color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;" />
+    <input type="submit" name="_approve_activate"
+           value="② Approve &amp; activate subscription"
+           style="background:#059669;color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:700;" />
+    <input type="submit" name="_reject"
+           value="Reject request"
+           style="background:#fef2f2;color:#dc2626;border:1px solid #fecaca;border-radius:6px;padding:8px 14px;cursor:pointer;font-weight:600;"
+           onclick="return confirm('Reject this package request? The user will be notified.');" />
+  </div>
+  <p style="color:#6b7280;font-size:12px;margin-top:6px;">
+    Step 1 confirms each submitted bKash/Nagad txn id in the DB and sends the
+    user a "payment received" notification. Step 2 actually opens the
+    subscription period and flips the user to ACTIVE.
+  </p>
+  {% endif %}
+{% endblock %}

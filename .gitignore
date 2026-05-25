@@ -1,0 +1,13 @@
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.pyc
+__pycache__/
+.env
+/staticfiles/
+/static_root/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store

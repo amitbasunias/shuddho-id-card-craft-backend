@@ -1,0 +1,24 @@
+
+Django
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+avro-py
+
+# Optional but recommended for production:
+gunicorn
+psycopg[binary]
+python-dotenv
+
+sqlalchemy
+pydantic
+pydantic-settings
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+cairosvg
+lxml
+aiofiles
+rembg[cpu]
+pillow
+avro-py
