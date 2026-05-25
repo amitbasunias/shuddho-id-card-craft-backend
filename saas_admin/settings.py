@@ -28,7 +28,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
 ALLOWED_HOSTS = [
     h.strip()
-    for h in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+    for h in os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1', 'https://shuddhoapp-7wyg9.ondigitalocean.app').split(',')
     if h.strip()
 ]
 # DEV-ONLY: tunnel via ngrok sends every Host header (random *.ngrok-free.app).
@@ -223,7 +223,7 @@ CSRF_TRUSTED_ORIGINS = [
     o.strip()
     for o in os.environ.get(
         "CSRF_TRUSTED_ORIGINS",
-        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000",
+        "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8000", "https://shuddhoapp-7wyg9.ondigitalocean.app"
     ).split(",")
     if o.strip()
 ]
@@ -232,7 +232,7 @@ if DEBUG:
     CSRF_TRUSTED_ORIGINS += [
         "https://*.ngrok-free.app", "http://*.ngrok-free.app",
         "https://*.ngrok.app",      "http://*.ngrok.app",
-        "https://*.ngrok.io",       "http://*.ngrok.io",
+        "https://*.ngrok.io",       "http://*.ngrok.io","https://shuddhoapp-7wyg9.ondigitalocean.app"
     ]
 
 # Storage roots for the product (uploads / generated outputs / templates / fonts).
