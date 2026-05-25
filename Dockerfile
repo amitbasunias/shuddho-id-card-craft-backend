@@ -19,8 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
 
 EXPOSE 8080
 
-CMD ["gunicorn", "saas_admin.wsgi:application", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "120"]
+CMD ["gunicorn", "saas_admin.wsgi:application", "--bind", "0.0.0.0:8080", "--workers", "2", "--timeout", "1200"]
